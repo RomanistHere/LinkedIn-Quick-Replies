@@ -1,6 +1,6 @@
 import { getStorageDataLocal, setStorageDataLocal, getRandomEmoji } from './modules/helpers';
 
-const messTempl = (text) =>
+const messTempl = (text: string) =>
 	`<div class="RomanistHere__message_links_wrap">
         <a href="#" class="RomanistHere__message_btn RomanistHere__message_edit">Edit</a>
         <a href="#" class="RomanistHere__message_btn RomanistHere__message_save">Save</a>
@@ -9,54 +9,55 @@ const messTempl = (text) =>
     <textarea class="RomanistHere__message_textarea">${text}</textarea>
     <a href="#" class="RomanistHere__message_text_span">${text}</a>`
 
-const addMechanics = (div, text, storedNote) => {
+const addMechanics = (div: HTMLElement, text: string, storedNote: any) => {
 	div.innerHTML = messTempl(text)
 
-	const textArea = div.querySelector('.RomanistHere__message_textarea')
+	const textArea: HTMLInputElement | null = div.querySelector('.RomanistHere__message_textarea')
 	const textItem = div.querySelector('.RomanistHere__message_text_span')
 	const deleteItem = div.querySelector('.RomanistHere__message_remove')
 
-	const save = async (newText) => {
-		textArea.classList.remove('RomanistHere__message_textarea-visible')
-		textItem.classList.remove('RomanistHere__message_text_span-hide')
+	const save = async (newText: string) => {
+		textArea?.classList.remove('RomanistHere__message_textarea-visible')
+		textItem?.classList.remove('RomanistHere__message_text_span-hide')
 
 		addMechanics(div, newText, storedNote)
 		const objToSave = { [storedNote]: newText }
 		await setStorageDataLocal(objToSave)
 	}
 
-	textItem.addEventListener('click', e => {
+	textItem?.addEventListener('click', e => {
 		e.preventDefault()
 	})
 
-	textArea.addEventListener('keydown', e => {
+	textArea?.addEventListener('keydown', e => {
 		if (e.keyCode === 13 && e.ctrlKey) {
 			const newText = textArea.value
 			save(newText)
 		}
 	})
 
-	div.querySelector('.RomanistHere__message_edit').addEventListener('click', e => {
+	div.querySelector('.RomanistHere__message_edit')?.addEventListener('click', e => {
 		e.preventDefault()
-		document.querySelector('.RomanistHere__mess_wrap').classList.add('RomanistHere__mess_wrap-active')
-		textArea.classList.add('RomanistHere__message_textarea-visible')
-		textItem.classList.add('RomanistHere__message_text_span-hide')
+		document.querySelector('.RomanistHere__mess_wrap')?.classList.add('RomanistHere__mess_wrap-active')
+		textArea?.classList.add('RomanistHere__message_textarea-visible')
+		textItem?.classList.add('RomanistHere__message_text_span-hide')
 	})
 
-	div.querySelector('.RomanistHere__message_save').addEventListener('click', e => {
+	div.querySelector('.RomanistHere__message_save')?.addEventListener('click', e => {
 		e.preventDefault()
-		const newText = textArea.value
+		const newText = textArea?.value
 		save(newText || getRandomEmoji())
 	})
 
-	deleteItem.addEventListener('click', e => {
+	deleteItem?.addEventListener('click', e => {
 		e.preventDefault()
 		save(getRandomEmoji())
 	})
 }
 
-const getMessTempl = async (storedNote) => {
-	const resp = await getStorageDataLocal(storedNote)
+const getMessTempl = async (storedNote: string) => {
+	const resp: any = await getStorageDataLocal(storedNote)
+
 	const text = resp[storedNote]
 	const div = document.createElement("DIV")
 	div.classList.add('RomanistHere__message')
@@ -73,7 +74,7 @@ const getMessWrapTempl = () => {
 	div.classList.add('RomanistHere__mess_wrap')
 	div.innerHTML = addLinkTempl
 
-	div.querySelector('.RomanistHere__show_btn').addEventListener('click', e => {
+	div.querySelector('.RomanistHere__show_btn')?.addEventListener('click', e => {
 		e.preventDefault()
 		const link = e.currentTarget
 
@@ -84,7 +85,7 @@ const getMessWrapTempl = () => {
 }
 
 const removeMess = () => {
-	document.querySelector('.RomanistHere__mess_wrap')?.remove()
+	document.querySelectorAll('.RomanistHere__mess_wrap').forEach(elem => elem.remove())
 }
 
 const showTempl = async () => {
@@ -106,6 +107,7 @@ const showTempl = async () => {
 	wrap.appendChild(messTempl4)
 	wrap.appendChild(messTempl5)
 
+	removeMess();
 	document.body.appendChild(wrap)
 }
 

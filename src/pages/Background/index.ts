@@ -1,4 +1,4 @@
-const getStorageDataLocal = key =>
+const getStorageDataLocal = (key: string | string[] | { [key: string]: any } | null) =>
 	new Promise((resolve, reject) =>
 		chrome.storage.local.get(key, result =>
 			chrome.runtime.lastError
@@ -7,8 +7,8 @@ const getStorageDataLocal = key =>
 		)
 	)
 
-const setStorageDataLocal = data =>
-	new Promise((resolve, reject) =>
+const setStorageDataLocal = (data: { [x: string]: any; note1?: string; note2?: string; note3?: string; note4?: string; note5?: string }) =>
+	new Promise<void>((resolve, reject) =>
 		chrome.storage.local.set(data, () =>
 			chrome.runtime.lastError
 			? reject(Error(chrome.runtime.lastError.message))
@@ -54,7 +54,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 	})
 
 	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-		console.log(changeInfo);
 		if (changeInfo.status === 'complete') {
 			chrome.tabs.sendMessage(tabId, {
 				message: 'TabUpdated'

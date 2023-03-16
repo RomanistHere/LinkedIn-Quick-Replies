@@ -207,7 +207,7 @@
 	right: 0;
 	transform: translateY(-50%) translateX(85%);
 
-	filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+	filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
 	border-radius: 20px;
 	background-color: var(--bg-col2);
 	-webkit-transition: all ease-out .3s;

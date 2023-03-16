@@ -1,4 +1,4 @@
-export const getStorageDataLocal = key =>
+export const getStorageDataLocal = (key: string | string[] | { [key: string]: any; } | null) =>
 	new Promise((resolve, reject) =>
 		chrome.storage.local.get(key, result =>
 			chrome.runtime.lastError
@@ -7,8 +7,8 @@ export const getStorageDataLocal = key =>
 		)
 	)
 
-export const setStorageDataLocal = data =>
-	new Promise((resolve, reject) =>
+export const setStorageDataLocal = (data: { [key: string]: any; }) =>
+	new Promise<void>((resolve, reject) =>
 		chrome.storage.local.set(data, () =>
 			chrome.runtime.lastError
 			? reject(Error(chrome.runtime.lastError.message))
