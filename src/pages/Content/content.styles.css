@@ -1,0 +1,296 @@
+:root {
+	--main-col: #0b66c2;
+	--bg-col2: #f9fafb;
+	--bg-col1: #fff;
+	--cross-col: #ca2424;
+	--sec-bg-col: #d2f4ff;
+}
+
+.RomanistHere__header {
+	position: absolute;
+	z-index: 100000000;
+
+	top: 50%;
+	left: 10px;
+	width: 34px;
+	height: 34px;
+	transform: translateY(-50%);
+}
+
+.RomanistHere__header .RomanistHere__wrapper,
+.RomanistHere__header .RomanistHere__wrapper .RomanistHere__icon {
+	width: 100%;
+	height: 100%;
+	transform: none;
+	left: 0;
+	top: 0;
+}
+
+.RomanistHere__wrapper {
+	position: relative;
+	display: inline-block;
+
+	width: 20px;
+	height: 10px;
+	margin: 0 10px;
+}
+
+.RomanistHere__icon {
+	display: inline-block;
+	position: absolute;
+
+	width: 15px;
+	height: 15px;
+	left: 0;
+	top: 60%;
+	transform: translateY(-50%);
+
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	border: 2px solid var(--main-col);
+	border-radius: 50%;
+	border-radius: 4px;
+}
+
+.RomanistHere__icon-filled {
+	background-color: var(--main-col);
+}
+
+.RomanistHere__icon-marked {
+	border-width: 4px;
+}
+
+.RomanistHere__wrap {
+	position: absolute;
+	display: none;
+	z-index: 1000000000000000000;
+
+	top: 0;
+	left: 10px;
+	width: 200px;
+	height: 150px;
+
+	background-color: var(--bg-col2);
+
+	border: 2px solid var(--main-col);
+	border-radius: 10px;
+}
+
+.RomanistHere__icon:hover + .RomanistHere__wrap,
+.RomanistHere__wrap:hover,
+.RomanistHere__wrap-show {
+	display: block;
+}
+
+.RomanistHere__form {
+	position: relative;
+
+	height: 100%;
+}
+
+.RomanistHere__textarea {
+	position: absolute;
+	z-index: 1000008;
+
+	left: 5px;
+	top: 5px;
+	width: calc(100% - 10px);
+	bottom: 30px;
+
+	background-color: var(--bg-col1);
+}
+
+.RomanistHere__link {
+	position: absolute;
+
+	bottom: 0;
+	left: 0;
+	padding: 4px 10px;
+
+	text-decoration: none;
+	font-size: 16px;
+	color: var(--main-col) !important;
+}
+
+.RomanistHere__link:hover {
+	text-decoration: none;
+}
+
+.RomanistHere__link-middle {
+	left: 70px;
+}
+
+.RomanistHere__link-right {
+	left: auto;
+	right: 0;
+}
+
+.RomanistHere__link_close {
+	z-index: 1000000000;
+
+	bottom: auto;
+	top: 5px;
+	right: 5px;
+	left: auto;
+	padding: 0 5px;
+
+	color: var(--cross-col) !important;
+}
+
+.RomanistHere__link-dis {
+	display: none;
+}
+
+.RomanistHere__saved {
+	position: absolute;
+	z-index: 100000000;
+	display: none;
+
+	right: auto;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0px;
+
+	font-size: 16px;
+	color: var(--main-col) !important;
+
+	animation: RomanistHere__appearing 2s ease;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.RomanistHere__saved-show {
+	display: block;
+}
+
+@keyframes RomanistHere__appearing {
+	0%, 100% { opacity: 0; }
+	30%, 70% { opacity: 1; }
+}
+
+
+.entity-result__title-line,
+.feed-shared-actor__container-link,
+.comments-post-meta__profile-link,
+.RomanistHere-filled,
+.comments-comment-item__inline-show-more-text,
+.core-rail .artdeco-card,
+.msg-thread__link-to-profile,
+.social-details-reactors-tab-body,
+.msg-overlay-bubble-header__title,
+.msg-overlay-bubble-header__details,
+.display-flex.flex-column.justify-center.overflow-hidden.pl2 {
+	overflow: visible !important;
+}
+
+.msg-entity-lockup__entity-info {
+	max-width: 370px !important;
+}
+
+.feed-shared-actor__meta {
+	max-width: 410px !important;
+}
+
+.comments-post-meta__actor {
+	max-width: 300px !important;
+}
+
+/* // messages // */
+.RomanistHere__mess_wrap {
+	position: fixed;
+	z-index: 100000000;
+
+	padding: 10px;
+	width: 300px;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%) translateX(85%);
+
+	filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+	border-radius: 20px;
+	background-color: var(--bg-col2);
+	-webkit-transition: all ease-out .3s;
+	-o-transition: all ease-out .3s;
+	transition: all ease-out .3s;
+}
+
+.RomanistHere__mess_wrap-active {
+	transform: translateY(-50%);
+}
+
+.RomanistHere__show_btn {
+	position: absolute;
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	height: 80px;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	border-radius: 40px 0 0 40px;
+
+	left: -32px;
+	width: 40px;
+	padding-right: 6px;
+
+	background-color: var(--bg-col2);
+	border-left: 6px solid var(--sec-bg-col);
+
+	font-size: 12px;
+}
+
+.RomanistHere__message_links_wrap {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.RomanistHere__message_btn {
+	padding: 2px 4px;
+
+	text-decoration: none;
+}
+
+.RomanistHere__message_text_span,
+.RomanistHere__message_text_span:focus,
+.RomanistHere__message_text_span:hover {
+	display: block;
+
+	padding: 8px;
+	max-height: 150px;
+	border-radius: 6px;
+
+	text-decoration: none;
+	color: #000 !important;
+	font-size: 15px;
+
+	cursor: move;
+	overflow: hidden;
+	background-color: #eaeaea;
+	white-space: pre-wrap;
+	/* background-color: var(--sec-bg-col); */
+}
+
+.RomanistHere__message_text_span-hide {
+	display: none;
+}
+
+.RomanistHere__message_textarea {
+	display: none;
+
+	height: 150px;
+}
+
+.RomanistHere__message_textarea-visible {
+	display: block;
+}
+
+.RomanistHere__message {
+	margin: 10px 0;
+}

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Fast Reply",
+  "description": "Fast editable answers for LinkedIn messages",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LinkedIn Fast Reply - Learn more",
+    "default_icon": {
+      "16": "logo16.png",
+      "32": "logo32.png",
+      "48": "logo48.png",
+      "128": "logo128.png"
+    }
+  },
+  "icons": {
+    "16": "logo16.png",
+    "32": "logo32.png",
+    "48": "logo48.png",
+    "128": "logo128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon128.png", "icon48.png", "icon32.png", "icon16.png"],
+      "matches": []
+    }
+  ],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "declarativeContent"
+  ],
+  "host_permissions": ["https://www.linkedin.com/*"]
+}
