@@ -6,7 +6,7 @@ const Popup = () => {
 		<div className="App">
 			<header className="App-header">
 				Fast LinkedIn replies by
-				<a className="App-link" href="https://www.linkedin.com/in/romanist/">
+				<a className="App-link" target="_blank" href="https://www.linkedin.com/in/romanist/" rel="noreferrer">
 					RomanistHere
 				</a>
 				<p>
