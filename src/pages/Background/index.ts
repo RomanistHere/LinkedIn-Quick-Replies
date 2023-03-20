@@ -54,6 +54,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 	})
 
 	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+		console.log(changeInfo);
 		if (changeInfo.status === 'complete') {
 			chrome.tabs.sendMessage(tabId, {
 				message: 'TabUpdated'
