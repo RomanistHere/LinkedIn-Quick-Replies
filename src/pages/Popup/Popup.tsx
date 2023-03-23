@@ -12,7 +12,7 @@ const Popup = () => {
 				<p>
 					Let me know if you want ChatGPR, more options or sync to share notes between devices.
 				</p>
-				Version 0.0.6
+				Version 0.0.7
 			</header>
 		</div>
 	);
