@@ -29,7 +29,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 
 		await setStorageDataLocal({
 			note1: 'Hi, welcome to quick replies!',
-			note2: 'We all have to write the same answers and questions all the time - it is not something we should be ashamed about. Below you will find a few examples to start with.',
+			note2: "We all have to write the same answers and questions all the time - it's not something to be ashamed of.\n\nSave edits with Ctrl + Enter.\n\nBelow you will find a few examples to start with.",
 			note3: "Just drag it to the message box. Don't worry, it won't be sent yet.",
 			note4: 'Thank you, will do!',
 			note5: '👍',
@@ -54,13 +54,10 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 	})
 
 	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-		console.log(tabId);
-		if (changeInfo.status === 'complete') {
-			setTimeout(() =>
-				chrome.tabs.sendMessage(tabId, {
-					message: 'TabUpdated'
-				})
-			, 1000);
+		if (changeInfo.status === 'complete' && tab.url?.includes("https://www.linkedin.com")) {
+			chrome.tabs.sendMessage(tabId, {
+				message: 'TabUpdated'
+			})
 		}
 	})
 })

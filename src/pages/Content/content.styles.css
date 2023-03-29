@@ -271,7 +271,7 @@
 	font-size: 15px;
 
 	cursor: move;
-	overflow: hidden;
+	overflow: auto;
 	background-color: #eaeaea;
 	white-space: pre-wrap;
 	/* background-color: var(--sec-bg-col); */
