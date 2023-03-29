@@ -5,12 +5,12 @@ const Popup = () => {
 	return (
 		<div className="App">
 			<header className="App-header">
-				Fast LinkedIn replies by
+				LinkedIn Quick Replies by
 				<a className="App-link" target="_blank" href="https://www.linkedin.com/in/romanist/" rel="noreferrer">
 					RomanistHere
 				</a>
 				<p>
-					Let me know if you want ChatGPR, more options or sync to share notes between devices.
+					Send me a word if you want more quick reply slots, a sync to share notes between devices or ChatGPT's help.
 				</p>
 				Version 0.1.0
 			</header>
