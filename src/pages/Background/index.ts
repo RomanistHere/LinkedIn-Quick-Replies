@@ -52,12 +52,12 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 			}
 		])
 	})
+})
 
-	chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-		if (changeInfo.status === 'complete' && tab.url?.includes("https://www.linkedin.com")) {
-			chrome.tabs.sendMessage(tabId, {
-				message: 'TabUpdated'
-			})
-		}
-	})
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	if (changeInfo.status === 'complete' && tab.url?.includes("https://www.linkedin.com")) {
+		chrome.tabs.sendMessage(tabId, {
+			message: 'TabUpdated'
+		})
+	}
 })

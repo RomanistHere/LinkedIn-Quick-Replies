@@ -12,7 +12,7 @@ const Popup = () => {
 				<p>
 					Send me a word if you want more quick reply slots, a sync to share notes between devices or ChatGPT's help.
 				</p>
-				Version 0.1.0
+				Version 0.1.1
 			</header>
 		</div>
 	);
